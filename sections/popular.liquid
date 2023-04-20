@@ -1,0 +1,149 @@
+{{ 'section-most-popular.css' | asset_url | stylesheet_tag }}
+
+<section class="popular">
+    <div class="popular-content">
+      <div class="wrapper">
+        <div class="title flex-between page-width">
+          <h2>{{section.settings.popular_title}}</h2>
+          <div class="arrows flex-between">
+            <div class="change-photos">
+              <img src="{{ section.settings.disable-left-arrow | img_url: "master"}}" class="photo change slider-prev showcaseSlider-prev"  alt="">
+              <img src="{{ section.settings.active-left-arrow | img_url: "master"}}" class="photo change slider-prev showcaseSlider-prev"  alt="">
+            </div>
+            <div class="change-photos">
+              <img src="{{ section.settings.disable-right-arrow | img_url: "master"}}" class="photo change slider-next showcaseSlider-next"  alt="">
+              <img src="{{ section.settings.active-right-arrow | img_url: "master"}}" class="photo change slider-next showcaseSlider-next"  alt="">
+            </div>
+          </div>
+        </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+
+            {% for block in section.blocks %}
+                <div class="swiper-slide">
+                  <div class="item">
+                    <div class="photo"><a href="/"><img src="{{ block.settings.image | img_url: "master"}}" alt=""></a></div>
+                    <div class="description">
+                      <div class="label flex-between">
+                        <a href="/">
+                          <h4>{{block.settings.title}}</h4>
+                        </a>
+                        <a href="/" class="adaptive-description-text">
+                          <p>{{ block.settings.text }}</p>
+                        <a>
+                        <a href="/">
+                          <div class="banner-button">{{block.settings.button_text}}</div>
+                        </a>
+                      </div>
+                      <a href="/" class="description-text">
+                        <p>{{ block.settings.text }}</p><a>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% schema %}
+{
+    "name": "popular",
+    "settings": [
+    {
+        "type": "text",
+        "id": "popular_title",
+        "label": "Title",
+        "default": "Most Popular"
+    },
+    {
+        "type": "image_picker",
+        "id": "disable-left-arrow",
+        "label": "Disable left arrow image"
+    },
+    {
+        "type": "image_picker",
+        "id": "active-left-arrow",
+        "label": "Active left arrow image"
+    },
+    {
+        "type": "image_picker",
+        "id": "disable-right-arrow",
+        "label": "Disable right arrow image"
+    },
+    {
+        "type": "image_picker",
+        "id": "active-right-arrow",
+        "label": "Active right arrow image"
+    }
+    ],
+    "blocks": [
+        {
+        "name": "Popular",
+        "type": "popular",
+        "settings": [
+            {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "color",
+                "id": "title_color",
+                "label": "Title color",
+                "default": "#121212"
+            },
+            {
+                "type": "text",
+                "id": "text",
+                "label": "Text"
+            },
+            {
+                "type": "color",
+                "id": "text_color",
+                "label": "Text color",
+                "default": "#121212"
+            },
+            {
+              "type": "text",
+              "id": "button_text",
+              "label": "Button text",
+              "default": "SHOP NOW"
+            },
+            {
+                "type": "text",
+                "id": "button_link",
+                "label": "Button link",
+                "default": "/"
+            },
+            {
+                "type": "color_background",
+                "id": "button_background_color",
+                "label": "Button background color",
+                "default": "#E9292F"
+            },
+            {
+                "type": "color_background",
+                "id": "button_hover_background_color",
+                "label": "Button hover background color",
+                "default": "#ce3338"
+            }
+        ]
+        }
+    ],
+    "presets": [
+        {
+            "category": "popular",
+            "name":"popular"
+        }
+    ]
+
+}
+{% endschema %}

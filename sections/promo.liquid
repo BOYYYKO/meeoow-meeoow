@@ -1,0 +1,54 @@
+{{ 'section-promo.css' | asset_url | stylesheet_tag }}
+
+<section class="promo">
+    <div class="promo-content page-width">
+      <h5 style="text-align: center;">{{ section.settings.title-1 }}<img src="{{ section.settings.stars | img_url: "master"}}" alt=""></h5>
+      <img src="{{ section.settings.line | img_url: "master"}}" alt="">
+      <h5>{{ section.settings.title-2 }}</h5>
+      <img src="{{ section.settings.line | img_url: "master"}}" alt="">
+      <h5>{{ section.settings.title-3 }}</h5>
+    </div>
+  </section>
+
+  
+{% schema %}
+{
+    "name": "promo",
+    "settings": [
+    {
+        "type": "text",
+        "id": "title-1",
+        "label": "title-1",
+        "default": "100,000 HAPPY CUSTOMERS"
+    },
+    {
+        "type": "text",
+        "id": "title-2",
+        "label": "title-2",
+        "default": "EARLY ACCESS BLACK FRIDAY STARTS NOW!"
+    },
+    {
+        "type": "text",
+        "id": "title-3",
+        "label": "title-3",
+        "default": "ORIGINAL PRODUCTS"
+    },
+    {
+        "type": "image_picker",
+        "id": "stars",
+        "label": "Stars"
+    },
+    {
+        "type": "image_picker",
+        "id": "line",
+        "label": "Line"
+    }
+    ],
+    "presets": [
+    {
+        "category": "promo",
+        "name":"promo"
+    }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,51 @@
+/* COMPANIES START */
+.companies > .swiper-2 {
+    display: none;
+    overflow: hidden;
+}
+
+.companies > .swiper {
+    display: flex;
+    max-width: 100%;
+    width: 100%;
+    height: 114px;
+    margin: 0 auto;
+}
+
+.companies {
+    background-color: #F5F5F5;
+    margin-bottom: 20px;
+}
+
+.companies-content {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 55px;
+    padding-bottom: 55px;
+}
+
+.companies-content>img {
+    height: 100%;
+    align-self: center;
+}
+
+/* COMPANIES END */
+
+@media (max-width: 1400px) {
+    .companies-content{
+        display: none;
+    }
+
+    .wrapper {
+        display: block;
+    }
+
+    .category{
+        margin: 0 auto;
+        margin-bottom: 18px;
+    }
+
+    .companies > .swiper-2{
+        display: flex;
+    }
+}

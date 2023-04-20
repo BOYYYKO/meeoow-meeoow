@@ -1,0 +1,57 @@
+
+{{ 'section-companies.css' | asset_url | stylesheet_tag }}
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+
+<section class="companies">
+    <div class="companies-content container">
+
+        {% for block in section.blocks %}
+            <img src="{{ block.settings.image | img_url: "master"}}" alt="">
+        {% endfor %}
+        
+    </div>
+    <div class="swiper-2">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+            <div class="swiper-slide"><div class="item"><img src="{{ block.settings.image | img_url: "master"}}" alt=""></div></div>
+        {% endfor %}
+       </div>
+      <div class="swiper-pagination" style="z-index:0"></div>
+  </section>
+
+  <script src="{{ 'swiper.js' | asset_url }}"></script>
+
+  {% schema %}
+  {
+      "name": "companies",
+      "settings": [
+      {
+          "type": "image_picker",
+          "id": "company",
+          "label": "Company image"
+      }
+      ],
+      "max_blocks": 5,
+        "blocks": [
+            {
+            "name": "Slide",
+            "type": "slide",
+            "settings": [
+                {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+                }
+            ]
+            }
+        ],
+            
+      "presets": [
+          {
+              "category": "companies",
+              "name":"companies"
+          }
+      ]
+  
+  }
+  {% endschema %}

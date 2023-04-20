@@ -1,0 +1,65 @@
+/* PROMO START */
+.promo {
+    background-color: #1EA8DD;
+}
+
+.promo-content {
+    display: flex;
+    height: 50px;
+    text-align: center;
+}
+
+.promo-content>h5 {
+    color: #FFFFFF;
+    width: 33%;
+    display: inline;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+    align-self: center;
+    text-align: center;
+    margin: 0px 10px;
+}
+
+.promo-content>h5>img {
+    margin-left: 10px;
+}
+
+/* PROMO END */
+
+@media (max-width: 1400px) {
+    .promo-content>h5 {
+        font-size: 16px;
+    }
+
+    .promo-content>h5>img {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .promo-content>h5 {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .promo-content {
+        height: 36px;
+    }
+
+    .promo-content>h5 {
+        font-size: 12px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 578px) {
+    .promo{
+        display: none;
+    }
+    .promo-content>h5 {
+        font-size: 9px;
+        text-align: center;
+    }
+}

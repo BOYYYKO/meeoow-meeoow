@@ -1,0 +1,8 @@
+development:
+  password: shptka_3d5ae8a9d634051a8531a38eefea1b50
+  theme_id: '148304560435'
+  store: meeoow-meeoow.myshopify.com
+  ignore_files:
+    - /\.(txt|gif|bat)$/
+    - '*.liquid___jb_tmp___'
+    - '*.liquid___jb_old___'

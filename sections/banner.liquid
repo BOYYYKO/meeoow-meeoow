@@ -1,0 +1,83 @@
+{{ 'section-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-banner{
+        background: url({{ section.settings.background_image | img_url: "master" }});
+        background-size: cover;
+    }
+
+    a>.banner-button {
+        background: {{ section.settings.button_background_color }};
+    }
+
+    a>.banner-button:hover {
+        background: {{ section.settings.button_hover_background_color }};
+    }
+{%- endstyle -%}
+
+<section class="section-banner">
+    <div class="banner-content container page-width">
+      <h1>{{ section.settings.footer_linklist_title }}</h1>
+      <p>{{ section.settings.footer_linklist_text }}</p>
+      <a href="{{ section.settings.button_link }}">
+        <div class="banner-button"><p>{{ section.settings.button_text }}</p></div>
+      </a>
+    </div>
+  </section>
+
+{% schema %}
+{
+    "name": "banner",
+    "settings": [
+    {
+        "type": "text",
+        "id": "footer_linklist_title",
+        "label": "Title",
+        "default": "CHOOSE THE BEST FOR THE BEST"
+    },
+    {
+        "type": "text",
+        "id": "footer_linklist_text",
+        "label": "Text",
+        "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+    },
+    {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "SHOP NOW"
+    },
+    {
+        "type": "text",
+        "id": "button_link",
+        "label": "Button link",
+        "default": "/"
+    },
+    {
+        "type": "color_background",
+        "id": "button_background_color",
+        "label": "Button background color",
+        "default": "#E9292F"
+    },
+    {
+        "type": "color_background",
+        "id": "button_hover_background_color",
+        "label": "Button hover background color",
+        "default": "#ce3338"
+    },
+    {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background image"
+    }
+    ],
+    
+    "presets": [
+        {
+            "category": "banner",
+            "name":"banner"
+        }
+    ]
+
+}
+{% endschema %}

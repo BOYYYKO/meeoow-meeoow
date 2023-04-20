@@ -1,0 +1,364 @@
+
+.change-photos {
+    object-fit: cover;
+}
+
+.change-photos .change:nth-of-type(2) {
+    display: none;
+}
+
+.change-photos:hover .change:nth-of-type(1) {
+    display: none;
+}
+
+.change-photos:hover .change:nth-of-type(2) {
+    display: block;
+}
+
+.change-photos:hover {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.description>a>p {
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 32px;
+}
+
+/* POPULAR START */
+
+h2 {
+    margin: 0;
+    padding-top: 32px;
+    font-family: 'Acme';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 55px;
+    line-height: 70px;
+}
+
+.arrows {
+    gap: 20px;
+    padding-top: 80px;
+}
+
+.arrows>img {
+    width: 60px;
+    height: 60px;
+    transition: 0.3s;
+}
+
+.arrows>img:hover {
+    transform: scale(1.2);
+}
+
+.popular {
+    padding-bottom: 124px;
+}
+
+.popular-content {
+    margin-top: 48px;
+}
+
+.popular-content>.content {
+    display: flex;
+}
+
+.content>.item {
+    padding-right: 20px;
+}
+
+h2 {
+    padding-top: 100px;
+}
+.photo{
+    overflow: hidden;
+}
+.change-photos > .photo {
+    border-radius: 15px 0px 0px 15px;
+}
+
+.photo>a>img {
+    transition: transform 0.25s;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.photo>a:hover img {
+    transform: scale(1.1);
+}
+
+h4 {
+    font-family: 'Acme';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 38px;
+    margin: 0;
+}
+
+.description>.label>a {
+    color: #383838;
+}
+
+.popular-content > .wrapper > .swiper {
+    padding-top: 73px;
+}
+
+.swiper-wrapper{
+    margin-left: 40px;
+}
+
+.item>.description {
+    margin-top: 15px;
+}
+
+.item>.description>a>p {
+    width: 274px;
+    margin: 0;
+    margin-top: 2px;
+}
+
+.adaptive-description-text{
+    display: none;
+}
+
+.item > .photo {
+    border-radius: 15px;
+    height: 500px;
+}
+
+.description>a {
+    color: #383838;
+}
+
+a>.button {
+    color: #FFFFFF;
+    padding: 15px 70px;
+    width: 94px;
+    background: #E9292F;
+    border-radius: 28px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    transition: .3s;
+}
+
+a>.button>p{
+    margin: 0;
+}
+
+.banner-content>a>.button {
+    margin-top: 50px;
+}
+
+.button:hover {
+    background: #ce3338;
+    transform: scale(1.05);
+}
+
+a>.button {
+    width: 134px;
+    padding: 20px 90px;
+    font-size: 24px;
+}
+
+.description>.label>a>.button {
+    padding: 15px 50px;
+    width: 84px;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 0;
+    text-align: center;
+}
+
+
+/* POPULAR END */
+
+@media (max-width: 1400px) {
+    a>.banner-button {
+        padding: 15px 30px;
+    }
+}
+
+@media (max-width: 1024px) {
+    h2{
+        font-size: 50px;
+    }
+
+    .label > a > h4 {
+        max-width: 170px;
+    }
+
+    a>.banner-button {
+        padding: 15px 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .change-photos > .photo>a>img {
+        border-radius: 15px 15px 0px 0px;
+    }
+
+    .change-photos > .photo {
+        border-radius: 0;
+    }
+
+    .popular>.popular-content>.wrapper>.arrows>.change-photos > .photo{
+        width: 165px;
+        height: 165px;
+        border-radius: 15px 15px 0px 0px;
+    }
+    
+    .popular-content > .wrapper > .title {
+        height: 143px;
+    }
+
+    .popular>.popular-content>.wrapper>.arrows>.change-photos > .photo{
+        width: 165px;
+        height: 165px;
+        border-radius: 15px 15px 0px 0px;
+    }
+
+    .description>a>.button {
+        width: 76px;
+        height: 16px;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 15px 50px;
+    }
+
+    .label > a > h4 {
+        max-width: 240px;
+    }
+
+    a>.banner-button {
+        padding: 15px 40px;
+    }
+
+    .arrows {
+        gap: 15px;
+    }
+
+    .swiper-wrapper{
+        margin-left: 0px;
+    }
+}
+
+
+@media (max-width: 578px) {
+    h2 {
+        font-size: 35px;
+        line-height: 44px;
+        padding: 0;
+        min-width: 200px;
+    }
+
+    .arrows > .change-photos{
+        height: 60px;
+    }
+    .arrows > .change-photos > img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .label > a > h4 {
+        max-width: 100%;
+    }
+
+    .label>a>.banner-button {
+        padding: auto;
+        width: auto;
+        text-align: center;
+    }
+
+    .popular>.popular-content>.wrapper>.arrows>.change-photos .photo>a>img,   .popular>.popular-content>.wrapper>.arrows>.change-photos,   .popular>.popular-content>.wrapper>.arrows>.change-photos .photo {
+        width: 165px;
+        height: 165px;
+    }
+
+    .popular-content > .wrapper > .title {
+        height: 85px;
+    }
+
+    .popular-content>.wrapper>.swiper {
+        padding-top: 40px;
+    }
+
+    
+    .popular>.popular-content>.wrapper>.arrows>.change-photos .photo>a>img,   .popular>.popular-content>.wrapper>.arrows>.change-photos,   .popular>.popular-content>.wrapper>.arrows>.change-photos .photo {
+        width: 165px;
+        height: 165px;
+    }
+
+    .banner-content>a>.button {
+        margin-top: 40px;
+        width: 76px;
+        height: 16px;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 15px 50px;
+    }
+
+    a>.button>p{
+        width: 73px;
+    }
+
+    .description > a>.button{
+        font-size: 12px;
+        line-height: 14px;
+        width: 63px;
+        padding: 10px 33px;
+    }
+
+    .arrows {
+        padding-top: 0px;
+    }
+
+    a>.button {
+        color: #FFFFFF;
+        padding: 15px 70px;
+        width: 94px;
+        background: #E9292F;
+        border-radius: 28px;
+        font-family: 'Karla';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;
+        transition: .3s;
+    }
+
+    .description>.label>a>.button:hover {
+        transform: scale(1);
+        font-size: 22px;
+    }
+
+    .adaptive-description-text{
+        display: flex;
+        padding-bottom: 5px;
+    }
+
+    .description-text{
+        display: none;
+    }
+
+    .description > .label {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .wrapper{
+        padding: 0 1.5rem;
+    }
+}
