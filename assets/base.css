@@ -235,6 +235,7 @@ body {
     font-style: normal;
     font-weight: 400;
     color: #383838;
+    min-width: 320px;
 }
 
 .flex-between {
@@ -281,6 +282,7 @@ html.no-js .no-js-hidden {
   margin: 0 auto;
   padding: 0 1.5rem;
   max-width: 1340px;
+  min-width: 320px;
 }
 
 .page-width.drawer-menu {

@@ -18,7 +18,7 @@ a>.category-button:hover {
         {% for block in section.blocks %}
         {% assign isOdd = forloop.index | modulo: 2 %}
         {% if isOdd == 0 %}
-          <div class="row">
+          <div class="row" style="margin-bottom: 20px;">
 
             {% for block in section.blocks limit: 2 offset: row_index%}
             {% assign isOdd = forloop.index | modulo: 2 %}

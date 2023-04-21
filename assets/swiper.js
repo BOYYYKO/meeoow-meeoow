@@ -48,14 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
             0: {
                 slidesPerView: 1,
             },
-            640: {
+            840: {
                 slidesPerView: 2,
             },
             1024: {
-                slidesPerView: 2.55,
+                slidesPerView: 2.6,
             },
             1920: {
-                slidesPerView: 4,
+                slidesPerView: 3,
             }
         },
     });

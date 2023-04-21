@@ -12,10 +12,6 @@ body{
     line-height: 70px;
 }
 
-.categories-content > .content > .row {
-    margin-bottom: 20px;
-}
-
 .left{
     padding-right: 5px;
 }
@@ -171,11 +167,6 @@ a>.category-button>p{
         display: none;
     }
 
-    .categories-content > .content > .row{
-        flex-direction: column;
-        margin: 0;
-    }
-
     .left,.right{
         padding-right: 0px;
         padding-left: 0px;
@@ -189,9 +180,6 @@ a>.category-button>p{
     .companies > .swiper-2{
         display: flex;
     }
-}
-
-@media (max-width: 1024px) {
 
     .categories-content > h2{
         font-size: 50px;
@@ -214,8 +202,11 @@ a>.category-button>p{
     }
 
     .category > .change-photos > .photo{
-        height: 319px;
+        height: 341px;
+        border-radius: 15px 15px 0px 0px;
     }
+
+
 }
 
 @media (max-width: 768px) {

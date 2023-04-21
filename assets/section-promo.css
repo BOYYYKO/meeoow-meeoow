@@ -6,13 +6,14 @@
 .promo-content {
     display: flex;
     height: 50px;
+    color: #FFFFFF;
     text-align: center;
 }
 
 .promo-content>h5 {
     color: #FFFFFF;
     width: 33%;
-    display: inline;
+    display: flex;
     align-items: center;
     font-size: 18px;
     font-weight: 700;
