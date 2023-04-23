@@ -23,7 +23,11 @@
     >
       {%- for option in product.options_with_values -%}
         <fieldset class="js product-form__input">
-          <legend class="form__label">{{ option.name }}</legend>
+          {% if product.variants[forloop.index0].metafields.color.values and option.name == 'Color' %}
+            <legend class="form__label">{{ option.name }}: {{product.variants[forloop.index].title}}</legend>
+          {% else %}
+            <legend class="form__label">{{ option.name }}</legend>
+          {% endif %}
           {% render 'product-variant-options', product: product, option: option, block: block %}
         </fieldset>
       {%- endfor -%}
