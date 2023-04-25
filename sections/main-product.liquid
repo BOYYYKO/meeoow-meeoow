@@ -58,7 +58,7 @@
   {% for item in product.collections %}
   {%- assign nameCollections = "" | append: item.title -%}
   {% endfor %}
-  <div id="product" data-collection="{{ nameCollections }}" data-source="{{section.settings.belgium.title}}" data-modal="{{section.section.france_netherland.title}}" class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+  <div id="product" data-collection="{{ nameCollections }}" data-source="{{section.settings.exception.title}}" class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     
     <!-- for belgium region we delete buy now button if tovar is in collection, which we write -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -82,13 +82,13 @@
                 document.head.appendChild(style);
                 console.log('"Buy now" button was deleted')
             } else {
-              console.log("This product not in be-collection");
+              console.log("This product not in collection");
             }
       };
     },"json");
   </script>
 
-<!-- for france and netherland region we don't show buy now button except tovars in collection, which we write -->
+<!-- for france and netherland region we don't show buy now button except tovars in collection, which we write before -->
     <script>
     $.get("https://ipinfo.io", function(response) {
       if(response.country == 'FR' || response.country == 'NL'){
@@ -96,9 +96,9 @@
           const tovar2 = document.getElementById("product"); 
           const tovarSection2 = tovar2.getAttribute("data-collection");
           const section2 = document.getElementById("product"); 
-          const sectionName2 = section2.getAttribute("data-modal");
+          const sectionName2 = section2.getAttribute("data-source");
             if( tovarSection2 != sectionName2){
-                console.log('tovar is not in fr/neth collection');
+                console.log('tovar is not in collection');
                 const style = document.createElement('style');
                 style.innerHTML = `
                   .shopify-payment-button {
@@ -108,7 +108,7 @@
                 document.head.appendChild(style);
                 console.log('"Buy now" button was deleted');
             } else {
-              console.log('tovar in fr/neth collection');
+              console.log('tovar in collection');
               console.log('"Buy now" button is visible');
             };
       };
@@ -1961,14 +1961,14 @@
   ],
   "settings": [
     {
-      "type": "collection_list",
-      "id": "belgium",
-      "label": "Collection in which 'buy now' button is invisible in BE-region"
+      "type": "collection",
+      "id": "exception",
+      "label": "Collections in which 'buy now' is real in FR&NE and invisible in BE"
     },
     {
-      "type": "collection_list",
-      "id": "france_netherland",
-      "label": "Collections in which 'buy now' button is visible in FR and NE region"
+      "type": "textarea",
+      "id": "swatchers",
+      "label": "Write Color name and hex-color or file name in 'Color--value,' format"
     },
     {
       "type": "checkbox",

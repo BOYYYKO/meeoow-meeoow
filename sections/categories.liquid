@@ -16,95 +16,93 @@ a>.category-button:hover {
       <div class="content">
 
         {% for block in section.blocks %}
-        {% assign isOdd = forloop.index | modulo: 2 %}
-        {% if isOdd == 0 %}
-          <div class="row" style="margin-bottom: 20px;">
+          {% assign isOdd = forloop.index | modulo: 2 %}
+          {% if isOdd == 0 %}
 
-            {% for block in section.blocks limit: 2 offset: row_index%}
-            {% assign isOdd = forloop.index | modulo: 2 %}
-            {% if isOdd == 0 %}
-            <div class="category left">
-              <div class="change-photos">
-                <div class="photo change"><a href="/"><img src="{{ block.settings.image | img_url: "master"}}" alt=""></a></div>
-                <div class="photo change"><a href="/"><img src="{{ block.settings.image-2 | img_url: "master"}}" alt=""></a></div>
-              </div>
-              <div class="description">
-                <a href="/">
-                  <h3 style="color: {{ block.settings.title-color }};">
-                    {{ block.settings.title }}
-                  </h3>
-                </a>
-                <a href="/">
-                  <p style="color: {{ block.settings.text-color }};">
-                    {{ block.settings.text }}
-                  </p>
-                </a>
-                <a href="{{ block.settings.button_link }}">
-                  <div class="category-button"><p>{{ block.settings.button_text }}</p></div>
-                </a>
-              </div>
+            <div class="row">
+              {% for block in section.blocks limit: 2 offset: row_index%}
+                {% assign isOdd = forloop.index | modulo: 2 %}
+                {% if isOdd == 0 %}
+                <div class="category left">
+                  <div class="change-photos">
+                    <div class="photo change"><a href="/"><img src="{{ block.settings.image | img_url: "master"}}" alt=""></a></div>
+                    <div class="photo change"><a href="/"><img src="{{ block.settings.image-2 | img_url: "master"}}" alt=""></a></div>
+                  </div>
+                  <div class="description">
+                    <a href="/">
+                      <h3 style="color: {{ block.settings.title-color }};">
+                        {{ block.settings.title }}
+                      </h3>
+                    </a>
+                    <a href="/">
+                      <p style="color: {{ block.settings.text-color }};">
+                        {{ block.settings.text }}
+                      </p>
+                    </a>
+                    <a href="{{ block.settings.button_link }}">
+                      <div class="category-button"><p>{{ block.settings.button_text }}</p></div>
+                    </a>
+                  </div>
+                </div>
+
+                {% else %}
+
+                <div class="category right">
+                  <div class="change-photos">
+                    <div class="photo change"><a href="/"><img src="{{ block.settings.image | img_url: "master"}}" alt=""></a></div>
+                    <div class="photo change"><a href="/"><img src="{{ block.settings.image-2 | img_url: "master"}}" alt=""></a></div>
+                  </div>
+                  <div class="description">
+                    <a href="/">
+                      <h3 style="color: {{ block.settings.title-color }};">
+                        {{ block.settings.title }}
+                      </h3>
+                    </a>
+                    <a href="/">
+                      <p style="color: {{ block.settings.text-color }};">
+                        {{ block.settings.text }}
+                      </p>
+                    </a>
+                    <a href="{{ section.settings.button_link }}">
+                      <div class="category-button"><p>{{ block.settings.button_text }}</p></div>
+                    </a>
+                  </div>
+                </div>
+                {% endif %}
+              {% endfor %}
+
             </div>
-
-            {% else %}
-
-            <div class="category right">
-              <div class="change-photos">
-                <div class="photo change"><a href="/"><img src="{{ block.settings.image | img_url: "master"}}" alt=""></a></div>
-                <div class="photo change"><a href="/"><img src="{{ block.settings.image-2 | img_url: "master"}}" alt=""></a></div>
-              </div>
-              <div class="description">
-                <a href="/">
-                  <h3 style="color: {{ block.settings.title-color }};">
-                    {{ block.settings.title }}
-                  </h3>
-                </a>
-                <a href="/">
-                  <p style="color: {{ block.settings.text-color }};">
-                    {{ block.settings.text }}
-                  </p>
-                </a>
-                <a href="{{ section.settings.button_link }}">
-                  <div class="category-button"><p>{{ block.settings.button_text }}</p></div>
-                </a>
-              </div>
-            </div>
-            {% endif %}
-            {% endfor %}
-
-          </div>
-          {% assign row_index = forloop.index %}
+            {% assign row_index = forloop.index %}
           {% endif %}
 
           {% if forloop.index == forloop.length %}
-          {% assign isOdd = forloop.index | modulo: 2 %}
-          {% if isOdd == 1 %}
-
-          <div class="row">
-            <div class="category left">
-              <div class="change-photos">
-                <div class="photo change"><a href="/"><img src="{{ block.settings.image | img_url: "master"}}" alt=""></a></div>
-                <div class="photo change"><a href="/"><img src="{{ block.settings.image-2 | img_url: "master"}}" alt=""></a></div>
+            {% assign isOdd = forloop.index | modulo: 2 %}
+            {% if isOdd == 1 %}
+              <div class="row">
+                  <div class="category left">
+                    <div class="change-photos">
+                      <div class="photo change"><a href="/"><img src="{{ block.settings.image | img_url: "master"}}" alt=""></a></div>
+                      <div class="photo change"><a href="/"><img src="{{ block.settings.image-2 | img_url: "master"}}" alt=""></a></div>
+                    </div>
+                    <div class="description">
+                      <a href="/">
+                        <h3 style="color: {{ block.settings.title-color }};">
+                          {{ block.settings.title }}
+                        </h3>
+                      </a>
+                      <a href="/">
+                        <p style="color: {{ block.settings.text-color }};">
+                          {{ block.settings.text }}
+                        </p>
+                      </a>
+                      <a href="{{ block.settings.button_link }}">
+                        <div class="category-button"><p>{{ block.settings.button_text }}</p></div>
+                      </a>
+                    </div>
+                  </div>
               </div>
-              <div class="description">
-                <a href="/">
-                  <h3 style="color: {{ block.settings.title-color }};">
-                    {{ block.settings.title }}
-                  </h3>
-                </a>
-                <a href="/">
-                  <p style="color: {{ block.settings.text-color }};">
-                    {{ block.settings.text }}
-                  </p>
-                </a>
-                <a href="{{ block.settings.button_link }}">
-                  <div class="category-button"><p>{{ block.settings.button_text }}</p></div>
-                </a>
-              </div>
-            </div>
-          </div>
+            {% endif %}
           {% endif %}
-        {% endif %}
-
         {% endfor %}
 
       </div>

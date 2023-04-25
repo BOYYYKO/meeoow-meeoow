@@ -36,7 +36,7 @@ a {
 
 h2 {
     margin: 0;
-    padding-top: 32px;
+    padding-top: 0;
     font-family: 'Acme';
     font-style: normal;
     font-weight: 400;
@@ -46,7 +46,6 @@ h2 {
 
 .arrows {
     gap: 20px;
-    padding-top: 80px;
 }
 
 .arrows>img {
@@ -76,9 +75,6 @@ h2 {
     padding-right: 20px;
 }
 
-h2 {
-    padding-top: 100px;
-}
 .photo{
     overflow: hidden;
 }
@@ -120,10 +116,10 @@ h4 {
 
 .item>.description {
     margin-top: 15px;
+    max-width: 547px;
 }
 
 .item>.description>a>p {
-    width: 274px;
     margin: 0;
     margin-top: 2px;
 }
@@ -134,7 +130,8 @@ h4 {
 
 .item > .photo {
     border-radius: 15px;
-    height: 500px;
+    height: 547px;
+    width: 547px;
 }
 
 .description>a {
@@ -183,7 +180,14 @@ a>.button {
     text-align: center;
 }
 
+.slider-next:hover, .slider-prev:hover{
+    opacity: 0.5;
+    transition: 0.5s;
+}
 
+.popular-content > .wrapper > .title {
+    margin-top: 100px;
+}
 /* POPULAR END */
 
 @media (max-width: 1400px) {
@@ -201,9 +205,6 @@ a>.button {
         max-width: 170px;
     }
 
-    a>.banner-button {
-        padding: 15px 25px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -221,9 +222,6 @@ a>.button {
         border-radius: 15px 15px 0px 0px;
     }
     
-    .popular-content > .wrapper > .title {
-        height: 143px;
-    }
 
     .popular>.popular-content>.wrapper>.arrows>.change-photos > .photo{
         width: 165px;
@@ -239,12 +237,21 @@ a>.button {
         padding: 15px 50px;
     }
 
+    .item > .photo {
+        height: 345px;
+        width: 345px;
+    }
+
     .label > a > h4 {
         max-width: 240px;
     }
 
     a>.banner-button {
-        padding: 15px 40px;
+        padding: 15px 20px;
+    }
+
+    .popular-content > .wrapper > .title {
+        height: 70px;
     }
 
     .arrows {
@@ -253,6 +260,65 @@ a>.button {
 
     .swiper-wrapper{
         margin-left: 0px;
+    }
+    .label>a>.banner-button {
+        padding: auto;
+        width: auto;
+        text-align: center;
+    }
+
+    .banner-content>a>.button {
+        margin-top: 40px;
+        width: 76px;
+        height: 16px;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 15px 50px;
+    }
+
+    a>.button>p{
+        width: 73px;
+    }
+
+    .description > a>.button{
+        font-size: 12px;
+        line-height: 14px;
+        width: 63px;
+        padding: 10px 33px;
+    }
+
+    .description>.label>a>.button:hover {
+        transform: scale(1);
+        font-size: 22px;
+    }
+
+    .adaptive-description-text{
+        display: flex;
+        padding-bottom: 5px;
+    }
+
+    .description-text{
+        display: none;
+    }
+
+    .description > .label {
+        flex-direction: column;
+        max-width: 345px;
+        width: 100%;
+    }
+
+    a>.button {
+        color: #FFFFFF;
+        padding: 15px 70px;
+        width: 94px;
+        background: #E9292F;
+        border-radius: 28px;
+        font-family: 'Karla';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;
+        transition: .3s;
     }
 }
 
@@ -277,86 +343,26 @@ a>.button {
         max-width: 100%;
     }
 
-    .label>a>.banner-button {
-        padding: auto;
-        width: auto;
-        text-align: center;
-    }
-
     .popular>.popular-content>.wrapper>.arrows>.change-photos .photo>a>img,   .popular>.popular-content>.wrapper>.arrows>.change-photos,   .popular>.popular-content>.wrapper>.arrows>.change-photos .photo {
         width: 165px;
         height: 165px;
     }
 
     .popular-content > .wrapper > .title {
-        height: 85px;
+        height: 70px;
     }
 
     .popular-content>.wrapper>.swiper {
         padding-top: 40px;
     }
-
     
     .popular>.popular-content>.wrapper>.arrows>.change-photos .photo>a>img,   .popular>.popular-content>.wrapper>.arrows>.change-photos,   .popular>.popular-content>.wrapper>.arrows>.change-photos .photo {
         width: 165px;
         height: 165px;
     }
 
-    .banner-content>a>.button {
-        margin-top: 40px;
-        width: 76px;
-        height: 16px;
-        font-size: 14px;
-        line-height: 16px;
-        padding: 15px 50px;
-    }
-
-    a>.button>p{
-        width: 73px;
-    }
-
-    .description > a>.button{
-        font-size: 12px;
-        line-height: 14px;
-        width: 63px;
-        padding: 10px 33px;
-    }
-
     .arrows {
         padding-top: 0px;
-    }
-
-    a>.button {
-        color: #FFFFFF;
-        padding: 15px 70px;
-        width: 94px;
-        background: #E9292F;
-        border-radius: 28px;
-        font-family: 'Karla';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 21px;
-        transition: .3s;
-    }
-
-    .description>.label>a>.button:hover {
-        transform: scale(1);
-        font-size: 22px;
-    }
-
-    .adaptive-description-text{
-        display: flex;
-        padding-bottom: 5px;
-    }
-
-    .description-text{
-        display: none;
-    }
-
-    .description > .label {
-        flex-direction: column;
-        width: 100%;
     }
 
     .wrapper{

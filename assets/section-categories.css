@@ -25,11 +25,14 @@ body{
 }
 
 .category {
-    width: 660px;
+    width: 700px;
     display: flex;
     justify-content: start;
 }
 
+.center {
+    justify-content: center;
+}
 a>.category-button {
     color: #FFFFFF;
     padding: 14px 27px;
@@ -154,7 +157,8 @@ a>.category-button>p{
 .categories-content > .content > .row{
     display: flex;
     justify-content: center;
-    gap: 10px;
+    margin-top: 20px;
+    gap: 20px;
 }
 
 /* CATEGORIES END */
@@ -174,7 +178,7 @@ a>.category-button>p{
 
     .category{
         margin: 0 auto;
-        margin-bottom: 15px;
+        margin-bottom: 0px;
     }
 
     .companies > .swiper-2{
@@ -187,6 +191,10 @@ a>.category-button>p{
 
     .categories-content > .content > .row{
         flex-direction:row;
+    }
+
+    .category > .description{
+        border-radius: 0 0 15px 15px;
     }
 
     .category{
@@ -270,7 +278,13 @@ a>.category-button>p{
     .category>.description {
         padding: 0px 16px;
     }
+
+    .categories-content>.content>.row {
+        gap: 15px;
+        margin-top: 15px;
+    }
 }
+
 
 @media (max-width: 578px) {
     .container{
