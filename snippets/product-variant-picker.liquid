@@ -12,8 +12,8 @@
     >
       {%- for option in product.options_with_values -%}
         <fieldset class="js product-form__input">
-          {% if product.variants[forloop.index0].metafields.color.values and option.name == 'Color' %}
-            <legend class="form__label">{{ option.name }}: {{currentOptionColor}}</legend>
+          {% if option.name == settings.option_name %}
+            <legend class="form__label" id="form__label" data-update-option-title="true" data-position="{{option.position}}" id="form__label">{{ option.name }}:<span class="current_option_value"> {{ option.values[forloop.index] }}</span></legend>
           {% else %}
             <legend class="form__label">{{ option.name }}</legend>
           {% endif %}

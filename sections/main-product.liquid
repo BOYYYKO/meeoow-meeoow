@@ -58,19 +58,26 @@
   {% for item in product.collections %}
   {%- assign nameCollections = "" | append: item.title -%}
   {% endfor %}
-  <div id="product" data-collection="{{ nameCollections }}" data-source="{{section.settings.exception.title}}" class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+  <div id="product" data-collection="{{ nameCollections }}" data-exception="{{settings.exception.title}}" data-includes="{{settings.includes.title}}" class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+    
     
     <!-- for belgium region we delete buy now button if tovar is in collection, which we write -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- for france and netherland region we don't show buy now button except tovars in collection, which we write before -->
     <script>
-    $.get("https://ipinfo.io", function(response) {
-      console.log("Your country is -", response.country);
-      if(response.country == 'BE'){
+      fetch("https://ipinfo.io/json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        console.log("Your country is -", data.country);
+      if(data.country == 'BE'){
         console.log("it's Belgium region");
           const tovar = document.getElementById("product"); 
           const tovarSection = tovar.getAttribute("data-collection");
           const section = document.getElementById("product"); 
-          const sectionName = section.getAttribute("data-source");
+          const sectionName = section.getAttribute("data-exception");
+          console.log(tovarSection, "|", sectionName);
             if( tovarSection == sectionName){
               console.log("This product in be-collection ")
                 const style = document.createElement('style');
@@ -85,18 +92,12 @@
               console.log("This product not in collection");
             }
       };
-    },"json");
-  </script>
-
-<!-- for france and netherland region we don't show buy now button except tovars in collection, which we write before -->
-    <script>
-    $.get("https://ipinfo.io", function(response) {
-      if(response.country == 'FR' || response.country == 'NL'){
+      if(data.country == 'FR' || data.country == 'NL'){
           console.log("It's France or Netherland region");
           const tovar2 = document.getElementById("product"); 
           const tovarSection2 = tovar2.getAttribute("data-collection");
           const section2 = document.getElementById("product"); 
-          const sectionName2 = section2.getAttribute("data-source");
+          const sectionName2 = section2.getAttribute("data-includes");
             if( tovarSection2 != sectionName2){
                 console.log('tovar is not in collection');
                 const style = document.createElement('style');
@@ -112,9 +113,8 @@
               console.log('"Buy now" button is visible');
             };
       };
-    },"json");
+      });
   </script>
-
     
     <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
       {% render 'product-media-gallery', variant_images: variant_images %}
@@ -1960,16 +1960,6 @@
     }
   ],
   "settings": [
-    {
-      "type": "collection",
-      "id": "exception",
-      "label": "Collections in which 'buy now' is real in FR&NE and invisible in BE"
-    },
-    {
-      "type": "textarea",
-      "id": "swatchers",
-      "label": "Write Color name and hex-color or file name in 'Color--value,' format"
-    },
     {
       "type": "checkbox",
       "id": "enable_sticky_info",

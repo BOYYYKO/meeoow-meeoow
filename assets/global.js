@@ -871,6 +871,14 @@ class VariantSelects extends HTMLElement {
       const input = productForm.querySelector('input[name="id"]');
       input.value = this.currentVariant.id;
       input.dispatchEvent(new Event('change', { bubbles: true }));
+      const colorTitle = document.querySelector('[data-update-option-title="true"]');
+      if (colorTitle){
+        const colorPosition = colorTitle.getAttribute('data-position');
+        let optionNameWithPosition = 'option'+ colorPosition
+        colorTitle.querySelector('.current_option_value').innerHTML = this.currentVariant[optionNameWithPosition];
+      } else {
+        console.log('form__label is not defined');
+      }
     });
   }
 

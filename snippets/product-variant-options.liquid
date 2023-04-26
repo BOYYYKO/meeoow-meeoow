@@ -1,19 +1,3 @@
-{% comment %}
-  Renders product variant options
-
-  Accepts:
-  - product: {Object} product object.
-  - option: {Object} current product_option object.
-  - block: {Object} block object.
-
-
-  Usage:
-  {% render 'product-variant-options',
-    product: product,
-    option: option,
-    block: block
-  %}
-{% endcomment %}
 {%- liquid
   assign variants_available_arr = product.variants | map: 'available'
   assign variants_option1_arr = product.variants | map: 'option1'
@@ -23,21 +7,8 @@
   assign product_form_id = 'product-form-' | append: section.id
 -%}
 
+
 <div class="swatchers">
-  {% assign splitted = section.settings.swatchers | split: "," %}
-  {% for item in splitted %}
-    {% assign item_list = item | split: "--"%} 
-    {% assign currentOptionColor = item_list[0]%}
-    {% assign swatchValue = item_list[1] %}
-    {% if swatchValue contains '#' %}
-      <label class="swatcher" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" style="display: block; background: {{swatchValue}}; height: 45px; width: 45px;"></label>
-    {% else %}
-      <label class="swatcher" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" style="display: block; background: url('{{swatchValue | file_img_url: "master" }}') no-repeat; background-size: cover; height: 45px; width: 45px;"></label>
-    {% endif%}
-  {% endfor %}
-</div>
-
-
 {%- for value in option.values -%}
   {%- liquid
     assign option_disabled = true
@@ -75,6 +46,32 @@
       {% endif %}
     >
 
+    {% if option.name == settings.option_name %}
+      {% assign optionPosition = option.position %}
+      {% assign optionName = 'option' | append: optionPosition %}
+      {% assign curentVariant = product.variants | where: optionName, value %}
+      
+      {% assign forloopIndex = forloop.index0 %}
+      {% for item in curentVariant limit: 1 %}
+        {% assign swatchValue = item.metafields.swatcher.values %}
+        {% if swatchValue contains '#' %}
+          <label class="swatcher" id="{{swatchValue}}" for="{{ section.id }}-{{ option.position }}-{{ forloopIndex }}" style="display: block; background: {{swatchValue}}; height: 45px; width: 45px;"></label>
+        {% else %}
+          <label class="swatcher" id="{{swatchValue}}" for="{{ section.id }}-{{ option.position }}-{{ forloopIndex }}" style="display: block; background: url('{{swatchValue | file_img_url: "master" }}') no-repeat; background-size: cover; height: 45px; width: 45px;"></label>
+        {% endif %}
+      {% endfor %}
+
+    {% else %}
+
+    <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+      {{ value -}}
+      <span class="visually-hidden">{{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>
+    </label>
+
+    {% endif %}
+  
+    
+
   {%- elsif block.settings.picker_type == 'dropdown' -%}
     <option
       value="{{ value | escape }}"
@@ -90,3 +87,4 @@
     </option>
   {%- endif -%}
 {%- endfor -%}
+</div>

@@ -8,6 +8,21 @@
     "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
+    "name": "geo-exceptions",
+    "settings" : [
+      {
+        "type": "collection",
+        "id": "exception",
+        "label": "Collection in which 'buy now' is invisible in BE"
+      },
+      {
+        "type": "collection",
+        "id": "includes",
+        "label": "Collection in which 'buy now' is visible in FR and NL"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {
@@ -468,6 +483,12 @@
   {
     "name": "t:settings_schema.cards.name",
     "settings": [
+      {
+        "type":"text",
+        "id": "option_name",
+        "label": "Option name with swatches",
+        "default": "Color"
+      },
       {
         "type": "select",
         "id": "card_style",
